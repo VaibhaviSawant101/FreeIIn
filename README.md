@@ -21,7 +21,7 @@ FreeIIn is a platform designed to empower freelancers worldwide by facilitating 
 
 To run this project locally, follow these steps:
 
-1. Clone the repository: `git clone [repository-url]`
+1. Clone the repository: `git clone https://github.com/VaibhaviSawant101/FreeIIn.git`
 2. Install dependencies: `npm install`
 3. Start the server: `npm start`
 4. Access the application at `http://localhost:3000`
