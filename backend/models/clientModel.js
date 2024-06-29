@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema();
+const Schema = mongoose.Schema;
 
 const clientProfileSchema = new Schema({
     name : {
@@ -19,5 +19,5 @@ const clientProfileSchema = new Schema({
     postedProjects : [{type : Schema.Types.ObjectId, ref: 'Project'}]
 });
 
-const ClientProfile = mongoose.model('ClientProfile', clientSchema);
+const ClientProfile = mongoose.model('ClientProfile', clientProfileSchema);
 module.exports = ClientProfile;

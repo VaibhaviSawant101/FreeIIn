@@ -1,12 +1,11 @@
-const express = require('express');
 const mongoose = require('mongoose');
 const ProjectApplication = require('../models/projectApplicationModel');
 
 // POST apply for a project
 const applyForProject = async (req, res) => {
     try {
-        const info = req.body;
-        const application = new ProjectApplication({info});
+        const {freelancer,project,status} = req.body;
+        const application = new ProjectApplication({freelancer,project,status});
         await application.save();
         res.status(201).json(application);
     } catch (error) {

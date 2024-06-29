@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const clientController = require('../controllers/clientControllers/clientProfileController');;
+const clientController = require('../controllers/clientProfileController');
 
 router.get('/:id', clientController.getClientProfileById); // Get client profile by ID
 router.post('/', clientController.createClientProfile); // Create a new client profile

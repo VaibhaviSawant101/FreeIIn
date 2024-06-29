@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const freelancerController = require('../controllers/freelancerControllers/freelancerProfileController');
+const freelancerController = require('../controllers/freelancerProfileController');
 
 router.get('/:id', freelancerController.getFreelancerProfileById); // Get freelancer profile by ID
 router.post('/', freelancerController.createFreelancerProfile); // Create a new freelancer profile

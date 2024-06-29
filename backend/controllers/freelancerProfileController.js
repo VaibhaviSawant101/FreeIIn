@@ -1,14 +1,13 @@
-const express = require('express');
 const mongoose = require('mongoose');
-const FreelancerProfile = require('../../models/freelancerModel');
+const FreelancerProfile = require('../models/freelancerModel');
 
 //Create a new freelancer 
 const createFreelancerProfile = async(req, res)=>{
     try{
-        const info = req.body;
-        const freelancer = new FreelancerProfile({info});
+        const {name,profilePicture,email,phone,skills,bio,portfolio} = req.body;
+        const freelancer = new FreelancerProfile({name,profilePicture,email,phone,skills,bio,portfolio});
         const savedFreelancer = await freelancer.save();
-        res.status(201).json(freelancer);
+        res.status(201).json(savedFreelancer);
     }catch(err){
         res.status(500).json({message:err.message});
     }

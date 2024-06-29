@@ -1,4 +1,3 @@
-const express = require('express');
 const mongoose = require('mongoose');
 const Project = require('../models/projectModel');
 
@@ -22,8 +21,8 @@ const getProjectById = async (req, res) => {
 // POST create a new project
 const createProject = async (req, res) => {
     try {
-        const info = req.body;
-        const project = new Project({info});
+        const {title,description,skillsRequired,deadline,client,freelancer,status} = req.body;
+        const project = new Project({title,description,skillsRequired,deadline,client,freelancer,status});
         await project.save();
         res.status(201).json(project);
     } catch (error) {

@@ -1,14 +1,11 @@
-const express = require('express');
 const mongoose = require('mongoose');
-const clientProfile = require('../../models/clientModel');
-const ClientProfile = require('../../models/clientModel');
-const Project = require('../../models/projectModel');
+const ClientProfile = require('../models/clientModel');
 
 //Create a new client
-const createClient = async (req, res)=>{
+const createClientProfile = async (req, res)=>{
     try{
-        const clientInfo = req.body;
-        const newClient = new clientProfile({clientInfo});
+        const {name,profilePicture,location,email,phone,comapnyDetails,aboutUs} = req.body;
+        const newClient = new ClientProfile({name,profilePicture,location,email,phone,comapnyDetails,aboutUs});
         const savedClient = await newClient.save();
         res.status(201).json(savedClient);
     }catch(err){
@@ -32,12 +29,12 @@ const updateClientProfile = async(req, res)=>{
 };
 
 //Get client profile by Id
-const getClientById = async(req, res)=>{
+const getClientProfileById = async(req, res)=>{
     try{
         const clientId = req.params._id;
         const client = await ClientProfile.findById(clientId).populate('postedProjects');
         if(!client){
-            return res.status(400).json({message:'CLient not found'});
+            return res.status(400).json({message:'Client not found'});
         }
         res.status(200).json(client);
     }catch(err){
@@ -60,9 +57,8 @@ const deleteClientProfile = async (req, res) => {
 };
 
 module.exports = {
-    createClient,
-    getClientById,
+    createClientProfile,
+    getClientProfileById,
     updateClientProfile,
-    postProject,
     deleteClientProfile,
 };
