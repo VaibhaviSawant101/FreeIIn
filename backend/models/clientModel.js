@@ -16,7 +16,7 @@ const clientProfileSchema = new Schema({
         industry: { type: String }
     },
     aboutUs: { type: String },
-    previousProjects : [{type : Schema.Types.ObjectId, ref: 'Project'}]
+    postedProjects : [{type : Schema.Types.ObjectId, ref: 'Project'}]
 });
 
 const ClientProfile = mongoose.model('ClientProfile', clientSchema);

@@ -14,8 +14,9 @@ const projectSchema = new Schema({
     skillsRequired : {
         type : String
     },
-    budget : {
-        type : Number
+    deadline : {
+        type : Date,
+        required: true
     },
     client : {
         type : Schema.Types.ObjectId,
@@ -38,7 +39,7 @@ const projectSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    application : [{type : Schema.Types.ObjectId, ref: 'ProjectApplication'}]
+    applications : [{type : Schema.Types.ObjectId, ref: 'ProjectApplication'}]
 });
 
 const Project = mongoose.model('Project', projectSchema);

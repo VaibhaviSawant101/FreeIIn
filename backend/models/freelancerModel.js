@@ -13,7 +13,8 @@ const freelancerProfileSchema = new Schema({
     phone: { type: String },
     skills: [{ type: String }],
     bio: { type: String },
-    portfolio: [{ type: String }]
+    portfolio: [{ type: String }],
+    appliedProjects: [{ type: Schema.Types.ObjectId, ref: 'ProjectApplication' }]
 });
 
 const FreelancerProfile = mongoose.model('FreelancerProfile', freelancerProfileSchema);
