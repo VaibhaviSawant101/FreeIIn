@@ -13,6 +13,8 @@ app.use('/clients', require('./routes/clientProfileRoute'));
 app.use('/freelancers', require('./routes/freelancerProfileRoute'));
 app.use('/projects', require('./routes/projectRoute'));
 app.use('/project-applications', require('./routes/projectApplicationRoute'));
+app.use('/chat', require('./routes/chatRoute'));
+app.use('/message', require('./routes/messageRoute'));
 
 mongoose.connect(mongoDBURL)
     .then(() => {
